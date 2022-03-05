@@ -1,0 +1,17 @@
+#!/bin/bash
+
+rm -rf neofetch*
+
+git clone https://github.com/dylanaraps/neofetch --depth 1
+
+cd neofetch*
+pkgver=$(git ls-remote --tags -q| tail -n 1 | sed 's/.*tags\///')
+
+cd ..
+string="pkgver=$pkgver"
+sed -i "0,/.*pkgver.*/s//$string/" PKGBUILD
+echo "Version set to $pkgver"
+
+tar cf neofetch.tar neofetch 
+
+makepkg

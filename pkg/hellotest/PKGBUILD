@@ -1,0 +1,16 @@
+pkgname="hello"
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="A didatic package to teste makepkg"
+arch=('x86_64')
+url='https://github.com/renatoexpert'
+license=('GPL')
+depends=('gcc>=10.0.0')
+source=('hello')
+md5sums=('SKIP')
+
+package() {
+	mkdir -p $pkgdir/usr/bin
+	cp $srcdir/hello $pkgdir/usr/bin/hello
+	chmod +x $pkgdir/usr/bin/hello
+}

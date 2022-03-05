@@ -1,0 +1,18 @@
+pkgname="hello-world"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Test pkg for hello-world"
+arch=("x86_64")
+# depends=("dep") disabled
+optdepends=("gcc")
+# conflicts=("dep") disabled
+license=("GNU")
+source=("hello-world.sh")
+sha512sums=("SKIP")
+
+package() {
+	echo "echo 'Hello to you!'" > "${srcdir}/hello-world.sh"
+	mkdir -p "${pkgdir}/usr/bin"
+	cp "${srcdir}/hello-world.sh" "${pkgdir}/usr/bin/hello-world"
+	chmod +x "${pkgdir}/usr/bin/hello-world"
+}

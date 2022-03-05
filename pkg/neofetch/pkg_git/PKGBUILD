@@ -1,0 +1,22 @@
+# PKGBUILD by Renato Araujo gh=@renatoexpert
+# renatorraraujo@gmail.com
+
+pkgname="neofetch"
+pkgver=7.1.0
+pkgdesc="Displays information about your operating system, software and hardware in an aesthetic and visually pleasing way."
+pkgrel=1
+url='https://github.com/dylanaraps/neofetch'
+source=('neofetch.tar')
+sha512sums=("SKIP")
+
+makedepends=('make')
+
+package() {
+	cd neofetch
+	sudo make install
+}
+
+arch=('any')
+license=('MIT')
+depends=('bash>=3.2')
+
