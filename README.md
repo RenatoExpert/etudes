@@ -1,5 +1,16 @@
 # etudes
 
+## C
+### Compilation
+```
+gcc main.c -o main
+```
+## C++
+### Compilation
+```
+gcc main.cpp -o main
+```
+
 ## GTK
 ### Compilation:
 I compiling using gcc as 
