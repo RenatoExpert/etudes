@@ -15,6 +15,21 @@ But I do like this:
 ```
 gcc main.cpp -o main
 ```
+## Dart
+
+### Flutter
+```
+flutter run lib/dart.main
+```
+To run in a specific device, get its ID and then use run with `-d` parameter.
+Listing devices
+```
+flutter devices
+```
+Then run specifying device
+```
+flutter run -d <DEVICE>
+```
 
 ## Fortran
 ### Compilation
