@@ -56,17 +56,18 @@ flutter run -d <DEVICE>
 ```
 
 ### Fortran
+Fortran has a lot on its versions, you can find a lot of documentation on F77 and F95. I recommend you to prefer the newest syntax (2018), since the newer versions have a lot of improvements. Books on F95 are still useful anyway.
 #### Compilation
-Be careful, Fortran varies a lot on its versions.
-Most people and tutorials recommend to compile Fortran stuff this way:
-```
-gfortran main.f -o main
-```
-But I do like this:
 ``` 
-gcc -lgfortran main.f -o main
+gcc -lgfortran main.f95 -o main
 ```
-
+#### Reference
+- Its wikipedia article is just perfect: 
+https://en.wikipedia.org/wiki/Fortran#Evolution
+- It has also its own wiki:
+https://fortranwiki.org/
+- I found some good books on this link:
+https://www.fortranplus.co.uk/fortranplus-books/
 
 ### GTK
 #### Compilation:
