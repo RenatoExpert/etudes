@@ -56,7 +56,7 @@ flutter run -d <DEVICE>
 ```
 
 ### Fortran
-Fortran has a lot on its versions, you can find a lot of documentation on F77 and F95. I recommend you to prefer the newest syntax (2018), since the newer versions have a lot of improvements. Books on F95 are still useful anyway.
+Fortran has a lot on its versions, you can find a lot of documentation on F77 and F95. I recommend you to prefer to compile in the newest syntax (2018), since the newer versions have a lot of improvements. Books on F95 are still useful anyway.
 #### Compilation
 ``` 
 gcc -lgfortran main.f95 -o main
