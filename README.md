@@ -105,3 +105,16 @@ It it tells you it could not import a module, you can easily install that with p
 ```
 pip3 install my_missing_module
 ```
+
+### Rust
+#### Compiling
+```
+rustc myscript.rs
+```
+
+### Rust Cargo
+#### Compiling
+```
+cargo run myapp
+```
+
