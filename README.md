@@ -108,7 +108,7 @@ node myapp.js
 ```
 
 ### PKG
-Generate zst packages, handable by pacman on Arch-based distros.
+Generate *.zst* packages, handable by pacman on Arch-based distros.
 #### Build
 Make sure you have a PKGBUILD file in your current directory
 ```
