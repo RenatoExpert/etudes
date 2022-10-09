@@ -1,4 +1,5 @@
-# etudes
+# Etudes
+A repository with many study exercises and examples in many languages
 
 ## Important vocabulary
 
