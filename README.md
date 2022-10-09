@@ -48,12 +48,16 @@ But I prefer use gcc, which serves as a front-end, its gonna call `g++` anyway o
 gcc main.cpp -o main
 ```
 
-### Dart
+### Dart Flutter
 
-#### Flutter
+#### Compile
+Flutter let you compile for many different devices. From mobile to web or desktop.
+An example of building apk (for android).
 ```
-flutter run lib/dart.main
+flutter build apk
 ```
+#### Running
+You may run and debug directly into your target.
 To run in a specific device, get its ID and then use run with `-d` parameter.
 Listing devices
 ```
