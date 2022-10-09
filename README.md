@@ -80,6 +80,18 @@ gcc `pkg-config --cflags gtk4` `pkg-config --cflags gtk4` main.c -o main
 I let you a great book recomendation for GTK programming:
 - https://developer-old.gnome.org/gtkmm-tutorial/stable/index.html
 
+### Java
+#### Compilation:
+```
+javac myfile.java
+```
+Its going to generate *.class* java binary files.
+#### Running:
+After compiled, run *.class* files without its extension.
+For example, if you have *myapp.class*, you may run it with:
+```
+java myapp
+```
 
 ### Python3
 #### Running
