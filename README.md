@@ -107,6 +107,19 @@ java myapp
 node myapp.js
 ```
 
+### PKG
+Generate zst packages, handable by pacman on Arch-based distros.
+#### Build
+Make sure you have a PKGBUILD file in your current directory
+```
+makepkg
+```
+Build __and__ autoinstall with `-i` flag:
+```
+makepkg -i
+```
+
+
 ### Python3
 #### Running
 No need to compile. One advantage of py3 is that you dont need to compile anything. It works something similar to shell script, interpretated in real time.
