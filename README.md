@@ -93,6 +93,12 @@ For example, if you have *myapp.class*, you may run it with:
 java myapp
 ```
 
+### Javascript
+#### Running:
+```
+node myapp.js
+```
+
 ### Python3
 #### Running
 No need to compile. One advantage of py3 is that you dont need to compile anything. It works something similar to shell script, interpretated in real time.
