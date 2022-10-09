@@ -1,0 +1,22 @@
+.status {
+	float: left;
+	width: 33.33%;
+	display:table;
+}
+.menu {
+	float:center;
+}
+/*clear floats after the columns */
+}
+h1 {
+	text-align:center;
+}
+button {
+	text-align:center;
+}
+.gameframe {
+	//position:absolute;
+	width: 10px;
+	margin:0 auto;
+}
+
