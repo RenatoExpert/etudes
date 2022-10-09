@@ -30,6 +30,13 @@ Library?
 ```
 gcc main.c -o main
 ```
+
+### C ncurses
+#### Compilation
+```
+gcc -lncurses main.c -o main
+```
+
 ### C++
 #### Compilation
 Many people compile directly on g++, like:
@@ -40,6 +47,7 @@ But I prefer use gcc, which serves as a front-end, its gonna call `g++` anyway o
 ```
 gcc main.cpp -o main
 ```
+
 ### Dart
 
 #### Flutter
