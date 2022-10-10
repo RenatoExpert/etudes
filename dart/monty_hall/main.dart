@@ -41,9 +41,8 @@ void main(List <String> args) {
 	while (turn < deftimes) {
 		//	Sort a door to hold the award
 		var possibilities = [0, 1, 2];
+		var goats = List.from(possibilities);
 		int award = pick(possibilities);
-		register_award(award);
-		var goats = [0,1,2];
 		goats.remove(award);
 		//	User A would pick one of three doors
 		int a_pref = pick(possibilities);
@@ -65,6 +64,7 @@ void main(List <String> args) {
 			guy_hall++;
 			throw Exception ('Hall picked the right one');
 		}
+		register_award(award);
 		turn++;
 	}
 	print("Result\tZeros\tOnes\tTwos\n\t${zero_count}\t${one_count}\t${two_count}");
