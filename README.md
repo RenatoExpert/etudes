@@ -48,8 +48,18 @@ But I prefer use gcc, which serves as a front-end, its gonna call `g++` anyway o
 gcc main.cpp -o main
 ```
 
-### Dart Flutter
+### Dart
+#### Running
+```
+dart run myapp.dart
+```
+#### Compile
+Dart can compile to different formats, but I believe exe will be the most usual.
+```
+dart compile exe myapp.dart
+``` 
 
+### Dart Flutter
 #### Compile
 Flutter let you compile for many different devices. From mobile to web or desktop.
 An example of building apk (for android).
