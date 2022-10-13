@@ -31,6 +31,16 @@ Library?
 gcc main.c -o main
 ```
 
+### C GTK
+#### Build
+I compile GTK on C using gcc as 
+```
+gcc `pkg-config --cflags gtk4` `pkg-config --cflags gtk4` main.c -o main
+```
+### Reference
+I let you a great book recomendation for GTK programming:
+- https://developer-old.gnome.org/gtkmm-tutorial/stable/index.html
+
 ### C ncurses
 #### Build
 ```
@@ -92,16 +102,6 @@ https://en.wikipedia.org/wiki/Fortran#Evolution
 https://fortranwiki.org/
 - I found some good books on this link:
 https://www.fortranplus.co.uk/fortranplus-books/
-
-### GTK
-#### Build
-I compile GTK on C using gcc as 
-```
-gcc `pkg-config --cflags gtk4` `pkg-config --cflags gtk4` main.c -o main
-```
-### Reference
-I let you a great book recomendation for GTK programming:
-- https://developer-old.gnome.org/gtkmm-tutorial/stable/index.html
 
 ### Java
 #### Build
