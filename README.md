@@ -26,19 +26,19 @@ Library?
 ## Languages
 
 ### C
-#### Compilation
+#### Build
 ```
 gcc main.c -o main
 ```
 
 ### C ncurses
-#### Compilation
+#### Build
 ```
 gcc -lncurses main.c -o main
 ```
 
 ### C++
-#### Compilation
+#### Build
 Many people compile directly on g++, like:
 ```
 g++ main.cpp -o main
@@ -49,24 +49,25 @@ gcc main.cpp -o main
 ```
 
 ### Dart
-#### Running
+Dart is a very flexible language. It may be interpretated as well as compiled for different formats.
+#### Run
 ```
 dart run myapp.dart
 ```
-#### Compile
-Dart can compile to different formats, but I believe exe will be the most usual.
+#### Build
+I will cover only `exe` format, because I believe it will be the most usual.
 ```
 dart compile exe myapp.dart
 ``` 
 
 ### Dart Flutter
-#### Compile
+#### Build
 Flutter let you compile for many different devices. From mobile to web or desktop.
 An example of building apk (for android).
 ```
 flutter build apk
 ```
-#### Running
+#### Run
 You may run and debug directly into your target.
 To run in a specific device, get its ID and then use run with `-d` parameter.
 Listing devices
@@ -80,7 +81,7 @@ flutter run -d <DEVICE>
 
 ### Fortran
 Fortran has a lot on its versions, you can find a lot of documentation on F77 and F95. I recommend you to prefer to compile in the newest syntax (2018), since the newer versions have a lot of improvements. Books on F95 are still useful anyway.
-#### Compilation
+#### Build
 ``` 
 gcc -lgfortran main.f95 -o main
 ```
@@ -93,7 +94,7 @@ https://fortranwiki.org/
 https://www.fortranplus.co.uk/fortranplus-books/
 
 ### GTK
-#### Compilation:
+#### Build
 I compile GTK on C using gcc as 
 ```
 gcc `pkg-config --cflags gtk4` `pkg-config --cflags gtk4` main.c -o main
@@ -103,12 +104,12 @@ I let you a great book recomendation for GTK programming:
 - https://developer-old.gnome.org/gtkmm-tutorial/stable/index.html
 
 ### Java
-#### Compilation:
+#### Build
 ```
 javac myfile.java
 ```
 Its going to generate *.class* java binary files.
-#### Running:
+#### Run
 After compiled, run *.class* files without its extension.
 For example, if you have *myapp.class*, you may run it with:
 ```
@@ -116,13 +117,13 @@ java myapp
 ```
 
 ### Javascript
-#### Running:
+#### Run
 ```
 node myapp.js
 ```
 
 ### Perl
-#### Running
+#### Run
 ```
 perl myscript.pl
 ```
@@ -141,7 +142,7 @@ makepkg -i
 
 
 ### Python3
-#### Running
+#### Run
 No need to compile. One advantage of py3 is that you dont need to compile anything. It works something similar to shell script, interpretated in real time.
 The basic .py execution on Linux and similars may be like this:
 ```
@@ -154,19 +155,19 @@ pip3 install my_missing_module
 ```
 
 ### Rust
-#### Compiling
+#### Build
 ```
 rustc myscript.rs
 ```
 
 ### Rust Cargo
-#### Compiling
+#### Build
 ```
 cargo run myapp
 ```
 
 ### sh and derivates (bash, zsh)
-#### Running
+#### Run
 Just use the binary it self to run the script
 ```
 sh myscript.sh
