@@ -149,3 +149,12 @@ rustc myscript.rs
 cargo run myapp
 ```
 
+### sh and derivates (bash, zsh)
+#### Running
+Just use the binary it self to run the script
+```
+sh myscript.sh
+bash myscript.bash
+zsh myscript.zsh
+```
+
