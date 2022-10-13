@@ -121,6 +121,12 @@ java myapp
 node myapp.js
 ```
 
+### Perl
+#### Running
+```
+perl myscript.pl
+```
+
 ### PKG
 Generate *.zst* packages, handable by pacman on Arch-based distros.
 #### Build
