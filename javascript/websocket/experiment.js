@@ -22,14 +22,8 @@ binance_sock.on('message', msg => {
 	json = JSON.parse(str);
 	binance_bid = json['bids'][0][0]
 	binance_ask = json['asks'][0][0]
-	table['binance'] = {
-			'bid': binance_bid,
-			'ask': binance_ask,
-			'time': Date.now()
-	};
 	dataf['binance']['ask'][Date.now()] = binance_ask
 	dataf['binance']['bid'][Date.now()] = binance_bid
-	render();
 });
 
 // ============== OKX ====================
@@ -60,26 +54,10 @@ okx_sock.on('message', (msg) => {
 			'ask': okx_ask,
 			'time': Date.now()
 		};
-		render();
+		dataf['okx']['ask'][Date.now()] = okx_ask
+		dataf['okx']['bid'][Date.now()] = okx_bid
 	} catch (e) {
 	}
 });
 
-
-// ============== RENDER =================
-function render() {
-	console.clear();
-	//update_spread();
-	console.log(dataf);
-}
-
-function update_spread() {
-	try {
-		table['binance']['hypo'] = table['binance']['bid'] - table['okx']['ask'];
-		table['okx']['hypo'] = table['okx']['bid'] - table['binance']['ask'];
-		spreads['binance']
-		spreads['okx']
-	} catch (e) {
-	}
-}
 
