@@ -4,7 +4,11 @@ const fs = require('fs');
 startTime = Date.now();
 
 function killme () {
-	if (Date.now() - startTime > 30000) {
+	limit = 30*1000
+	past = Date.now - startTime 
+	ready = past >= limit;
+	if (ready) {
+		console.log('Time to export');
 		exportable = JSON.stringify(dataf);
 		fs.writeFile('./dataframe.json',
 			exportable,
@@ -16,6 +20,10 @@ function killme () {
 		);
 		console.log('Done!');
 		process.exit(0);
+	} else {
+		console.clear();
+		console.log('Past' +past/1000 + 'from ' + limit/1000);
+		console.log(past/limit + '%');
 	}
 }
 
