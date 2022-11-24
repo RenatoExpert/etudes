@@ -25,25 +25,18 @@ print('Okx frames:' , len(o_x))
 print('Binance frames:' , len(b_x))
 
 
-fig, axs = plt.subplots(2, 1, sharex=True, sharey=False)
+fig, axs = plt.subplots(1, 1, sharex=True, sharey=False)
 
 # === Okx spread ===
-axs[0].set_title('Okx Spread')
-axs[0].grid(True)
-axs[0].set_xlabel('Time')
-axs[0].set_ylabel('Price')
-axs[0].fill_between(o_x, o_ya, o_yb, color='gray')
-#ax22 = axs[2].twinx()
-#ax22.plot(b_x, b_yb, linewidth=0.5, color='gray')
+axs.set_title('Spreads')
+axs.grid(True)
+axs.set_xlabel('Time')
+axs.set_ylabel('Price')
+axs.fill_between(o_x, o_ya, o_yb, color='gray')
 
 # === Binance spread ===
-axs[1].set_title('Binance Spread')
-axs[1].grid(True)
-axs[1].set_xlabel('Time')
-axs[1].set_ylabel('Price')
-axs[1].fill_between(b_x, b_ya, b_yb, color='yellow')
-#ax22 = axs[3].twinx()
-#ax22.plot(b_x, b_yb, linewidth=0.5, color='blue')
+axs1 = axs.twinx()
+axs1.fill_between(b_x, b_ya, b_yb, color='yellow')
 
 fig.tight_layout()
 plt.show()
