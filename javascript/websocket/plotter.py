@@ -9,20 +9,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # ======= Binance =======
-b_keys = list(dataframe['binance']['ask'].keys())
+b_keys = list(dataframe['binance'].keys())
 b_x = np.array([int(x) for x in b_keys])
-b_ya = [float(dataframe['binance']['ask'][time]) for time in b_keys]
-b_yb = [float(dataframe['binance']['bid'][time]) for time in b_keys]
+b_ya = [float(dataframe['binance'][time]['ask']) for time in b_keys]
+b_yb = [float(dataframe['binance'][time]['bid']) for time in b_keys]
 
 # ======= Okx ===========
-o_keys = list(dataframe['okx']['bid'].keys())
+o_keys = list(dataframe['okx'].keys())
 o_x = np.array([int(x) for x in o_keys])
-o_ya = [float(dataframe['okx']['ask'][time]) for time in o_keys]
-o_yb = [float(dataframe['okx']['bid'][time]) for time in o_keys]
+o_ya = [float(dataframe['okx'][time]['ask']) for time in o_keys]
+o_yb = [float(dataframe['okx'][time]['bid']) for time in o_keys]
+o_spreads =  time['bid']-time['ask'] for time in dataframe['okx']
 
 # ===== Relatory ========
-print('Okx frames:' , len(o_x))
-print('Binance frames:' , len(b_x))
+print('Frames')
+print('Okx:' , len(o_x))
+print('Binance' , len(b_x))
+print('Average Spread')
+print('Okx:' , o_spreads)
+
 
 
 fig, axs = plt.subplots(1, 1, sharex=True, sharey=False)
