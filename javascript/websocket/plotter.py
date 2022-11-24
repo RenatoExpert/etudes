@@ -18,13 +18,16 @@ o_bid_x = [int(x) for x in o_bid_keys]
 o_bid_y = [dataframe['okx']['bid'][time] for time in o_bid_keys]
 
 ref_x = b_ask_x + o_bid_x
+ref_y = [0 for x in ref_x]
 
 fig, ax = plt.subplots()
 #ax.plot(b_ask_x, b_ask_y, o_bid_x, o_bid_y, linewidth=0.5)
+ax.plot(ref_x, ref_y, linewidth=0.5, color='white')
 ax.plot(b_ask_x, b_ask_y, linewidth=0.5, color='red')
 ax.plot(o_bid_x, o_bid_y, linewidth=0.5, color='blue')
 ax.set_xlabel('Time')
-ax.set_ylabel('Binance ask and Okx Bid')
-ax.grid(True)
+ax.set_ylabel('Price')
+ax.set_title('Binance asks versus Okx bids')
+#ax.grid(True)
 plt.show()
 
