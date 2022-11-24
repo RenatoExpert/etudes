@@ -63,17 +63,12 @@ def force_y (dic, x, side):
 	return 0
 	
 def delta_range (a, b):
-	return a
-'''
-	if a > 0 : return 2
-	elif b > 0 : return -1
-	else: return 0
-'''
+	if (a>b): return a
+	else: return b
 
 def per_diff (a, b):
 	diff = a-b
 	if diff>0: return diff
-
 
 #master_x = list(set(o_x)-set(b_x))
 master_x = o_x
