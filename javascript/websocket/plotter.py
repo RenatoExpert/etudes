@@ -80,7 +80,7 @@ master_x = o_x
 master_y = [
 	delta_range(
 		per_diff(force_y(o_dict, x, 'bid'), force_y(b_dict, x, 'ask')),
-		per_diff(force_y(b_dict, x, 'bid'), force_y(o_dict, x, 'ask')
+		per_diff(force_y(b_dict, x, 'bid'), force_y(o_dict, x, 'ask'))
 	)
 	for x in master_x
 ]
@@ -110,6 +110,6 @@ plt.fill_between(b_x, b_ya, b_yb, color='yellow')
 axs3 = plt.subplot(312, sharex=ax1)
 plt.plot(master_x, master_y, color='green')
 
-fig.tight_layout()
+plt.tight_layout()
 plt.show()
 
