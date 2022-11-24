@@ -46,8 +46,9 @@ binance_sock.on('message', msg => {
 	json = JSON.parse(str);
 	binance_bid = json['bids'][0][0]
 	binance_ask = json['asks'][0][0]
-	binancef['ask'][Date.now()] = binance_ask
-	binancef['bid'][Date.now()] = binance_bid
+	dtime = new Date().getTime() - startTime;
+	binancef['ask'][dtime] = binance_ask
+	binancef['bid'][dtime] = binance_bid
 	killme();
 });
 
@@ -74,13 +75,9 @@ okx_sock.on('message', (msg) => {
 		json = JSON.parse(str)['data'][0];
 		okx_ask = json['asks'][0][0];
 		okx_bid = json['bids'][0][0];
-		table['okx'] = {
-			'bid': okx_bid,
-			'ask': okx_ask,
-			'time': Date.now()
-		};
-		okxf['ask'][Date.now()] = okx_ask
-		okxf['bid'][Date.now()] = okx_bid
+		dtime = new Date().getTime() - startTime;
+		okxf['ask'][dtime] = okx_ask
+		okxf['bid'][dtime] = okx_bid
 		killme();
 	} catch (e) {
 	}
