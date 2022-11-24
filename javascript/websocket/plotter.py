@@ -60,7 +60,7 @@ def force_y (dic, x, side):
 			return dic[i][side]
 		else:
 			counter+=1
-	return 0
+	return None
 	
 def delta_range (a, b):
 	if (a is None or b is None):
@@ -76,7 +76,7 @@ def per_diff (a, b):
 	else:
 		diff = a-b
 		if diff > 0:
-			return diff
+			return diff/a
 		else:
 			return 0
 
