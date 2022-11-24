@@ -8,26 +8,43 @@ dataframe = json.loads(raw_string)
 import matplotlib.pyplot as plt
 import numpy as np
 
-b_ask_keys = list(dataframe['binance']['ask'].keys())
-b_ask_x = np.array([int(x) for x in b_ask_keys])
-b_ask_y = [float(dataframe['binance']['ask'][time]) for time in b_ask_keys]
+# ======= Binance =======
+b_keys = list(dataframe['binance']['ask'].keys())
+b_x = np.array([int(x) for x in b_keys])
+b_ya = [float(dataframe['binance']['ask'][time]) for time in b_keys]
+b_yb = [float(dataframe['binance']['bid'][time]) for time in b_keys]
 
-o_bid_keys = list(dataframe['okx']['bid'].keys())
-o_bid_x = np.array([int(x) for x in o_bid_keys])
-o_bid_y = [float(dataframe['okx']['bid'][time]) for time in o_bid_keys]
+# ======= Okx ===========
+o_keys = list(dataframe['okx']['bid'].keys())
+o_x = np.array([int(x) for x in o_keys])
+o_ya = [float(dataframe['okx']['ask'][time]) for time in o_keys]
+o_yb = [float(dataframe['okx']['bid'][time]) for time in o_keys]
 
-print('Okx frames:' , len(o_bid_x))
-print('Binance frames:' , len(b_ask_x))
+# ===== Relatory ========
+print('Okx frames:' , len(o_x))
+print('Binance frames:' , len(b_x))
 
-fig, ax = plt.subplots(sharex=True, sharey=True)
-ax.grid(True)
 
-ax.plot(b_ask_x, b_ask_y, linewidth=0.5, color='red')
-ax2 = ax.twinx()
-ax2.plot(o_bid_x, o_bid_y, linewidth=0.5, color='blue')
+fig, axs = plt.subplots(2, 1, sharex=True, sharey=True)
 
-ax.set_xlabel('Time')
-ax.set_ylabel('Price')
-ax.set_title('Binance asks versus Okx bids')
+# === Binance asks versus Okx bids ====
+axs[0].set_title('Binance asks versus Okx bids')
+axs[0].grid(True)
+axs[0].set_xlabel('Time')
+axs[0].set_ylabel('Price')
+axs[0].plot(b_x, b_ya, linewidth=0.5, color='red')
+ax02 = axs[0].twinx()
+ax02.plot(o_x, o_yb, linewidth=0.5, color='blue')
+
+# === Binance asks versus Okx bids ====
+axs[1].set_title('Binance bids versus Okx asks')
+axs[1].grid(True)
+axs[1].set_xlabel('Time')
+axs[1].set_ylabel('Price')
+axs[1].plot(o_x, o_ya, linewidth=0.5, color='red')
+ax12 = axs[1].twinx()
+ax12.plot(b_x, b_yb, linewidth=0.5, color='blue')
+
+fig.tight_layout()
 plt.show()
 
