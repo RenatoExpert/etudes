@@ -76,7 +76,7 @@ def per_diff (a, b):
 	else:
 		diff = a-b
 		if diff > 0:
-			return diff/a
+			return 100*(diff/a)
 		else:
 			return 0
 
