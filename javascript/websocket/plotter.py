@@ -16,10 +16,6 @@ o_bid_x = np.array([int(x) for x in o_bid_keys])
 o_bid_y = [float(dataframe['okx']['bid'][time]) for time in o_bid_keys]
 
 fig, ax = plt.subplots(sharex=True, sharey=True)
-ax.set_xticks(np.arange(0, 30000, 5000))
-ax.set_xticks(np.arange(0, 30000, 1000), minor=True)
-ax.set_yticks(np.arange(10000, 20000, 100))
-ax.set_yticks(np.arange(10000, 20000, 100), minor=True)
 ax.grid(True)
 
 ax.plot(b_ask_x, b_ask_y, linewidth=0.5, color='red')
