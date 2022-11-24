@@ -4,8 +4,8 @@ const fs = require('fs');
 startTime = Date.now();
 
 function killme () {
-	limit = 30*1000
-	past = Date.now - startTime 
+	limit = 30*1000;
+	past = Date.now.getTime() - startTime.getTime();
 	ready = past >= limit;
 	if (ready) {
 		console.log('Time to export');
