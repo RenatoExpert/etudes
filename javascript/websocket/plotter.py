@@ -99,6 +99,9 @@ axs.fill_between(o_x, o_ya, o_yb, color='gray')
 # === Binance spread ===
 axs1 = axs.twinx()
 axs1.fill_between(b_x, b_ya, b_yb, color='yellow')
+# === Delta range
+axs2 = axs.twinx()
+axs2.plot(master_x, master_y, color='green')
 
 fig.tight_layout()
 plt.show()
