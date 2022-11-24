@@ -20,6 +20,12 @@ b_keys = list(dataframe['binance'].keys())
 b_x = np.array([int(x) for x in b_keys])
 b_ya = [float(dataframe['binance'][time]['ask']) for time in b_keys]
 b_yb = [float(dataframe['binance'][time]['bid']) for time in b_keys]
+b_spreads =  [
+	float(dataframe['binance'][time]['ask']) -
+	float(dataframe['binance'][time]['bid'])
+	for time in b_keys
+]
+b_as = get_average(b_spreads)
 
 # ======= Okx ===========
 o_keys = list(dataframe['okx'].keys())
@@ -39,6 +45,7 @@ print('Okx:' , len(o_x))
 print('Binance' , len(b_x))
 print('Average Spread')
 print('Okx:' , o_as)
+print('Binance:' , b_as)
 
 
 
