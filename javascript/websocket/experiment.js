@@ -1,29 +1,22 @@
 const WebSocket = require('ws');
 const fs = require('fs');
 
-startTime = Date.now();
+startTime = new Date();
 
 function killme () {
 	limit = 30*1000;
-	past = Date.now.getTime() - startTime.getTime();
+	past = new Date().getTime() - startTime.getTime();
 	ready = past >= limit;
 	if (ready) {
 		console.log('Time to export');
 		exportable = JSON.stringify(dataf);
-		fs.writeFile('./dataframe.json',
-			exportable,
-			err => {
-				if(err) {
-					console.err(err);
-				}
-			}
-		);
+		fs.writeFileSync('./dataframe.json', exportable);
 		console.log('Done!');
 		process.exit(0);
 	} else {
 		console.clear();
-		console.log('Past' +past/1000 + 'from ' + limit/1000);
-		console.log(past/limit + '%');
+		console.log('Past ' + Math.round(past/1000) + ' from ' + limit/1000);
+		console.log('\t', Math.round((100*past)/limit) + '%');
 	}
 }
 
