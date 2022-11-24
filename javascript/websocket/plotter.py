@@ -1,6 +1,6 @@
 import json, sys
 
-fpath = sys.argv[2] || 'dataframe.json'
+fpath = sys.argv[1] or 'dataframe.json'
 file = open(fpath, 'r')
 raw_string = file.read()
 dataframe = json.loads(raw_string) 
