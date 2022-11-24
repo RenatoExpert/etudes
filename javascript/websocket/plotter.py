@@ -27,8 +27,8 @@ o_x = np.array([int(x) for x in o_keys])
 o_ya = [float(dataframe['okx'][time]['ask']) for time in o_keys]
 o_yb = [float(dataframe['okx'][time]['bid']) for time in o_keys]
 o_spreads =  [
-	float(dataframe['okx'][time]['bid']) -
-	float(dataframe['okx'][time]['ask']) 
+	float(dataframe['okx'][time]['ask']) -
+	float(dataframe['okx'][time]['bid'])
 	for time in o_keys
 ]
 o_as = get_average(o_spreads)
@@ -38,7 +38,7 @@ print('Frames')
 print('Okx:' , len(o_x))
 print('Binance' , len(b_x))
 print('Average Spread')
-print('Okx:' , o_spreads)
+print('Okx:' , o_as)
 
 
 
