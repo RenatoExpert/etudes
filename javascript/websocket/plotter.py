@@ -8,6 +8,13 @@ dataframe = json.loads(raw_string)
 import matplotlib.pyplot as plt
 import numpy as np
 
+def get_average (list): 
+	total = 0
+	count = len(list)
+	for (n in list):
+		total = total+n
+	return total/count
+
 # ======= Binance =======
 b_keys = list(dataframe['binance'].keys())
 b_x = np.array([int(x) for x in b_keys])
@@ -24,6 +31,7 @@ o_spreads =  [
 	float(dataframe['okx'][time]['ask']) 
 	for time in o_keys
 ]
+o_as = get_average(o_spreads)
 
 # ===== Relatory ========
 print('Frames')
