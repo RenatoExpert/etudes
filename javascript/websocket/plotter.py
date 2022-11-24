@@ -48,16 +48,15 @@ print('Okx:' , o_as)
 print('Binance:' , b_as)
 
 
-
+# === Ploting ======
 fig, axs = plt.subplots(1, 1, sharex=True, sharey=False)
-
-# === Okx spread ===
 axs.set_title('Spreads')
 axs.grid(True)
 axs.set_xlabel('Time')
 axs.set_ylabel('Price')
-axs.fill_between(o_x, o_ya, o_yb, color='gray')
 
+# === Okx spread ===
+axs.fill_between(o_x, o_ya, o_yb, color='gray')
 # === Binance spread ===
 axs1 = axs.twinx()
 axs1.fill_between(b_x, b_ya, b_yb, color='yellow')
