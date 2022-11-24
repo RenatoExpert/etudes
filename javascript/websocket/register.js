@@ -4,7 +4,8 @@ const fs = require('fs');
 startTime = new Date();
 
 function killme () {
-	limit = 30*1000;
+	secs = process.argv[2] || 30;
+	limit = secs*1000;
 	past = new Date().getTime() - startTime.getTime();
 	ready = past >= limit;
 	if (ready) {
