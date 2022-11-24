@@ -51,6 +51,7 @@ binance_sock.on('message', msg => {
 	binance_ask = json['asks'][0][0]
 	dataf['binance']['ask'][Date.now()] = binance_ask
 	dataf['binance']['bid'][Date.now()] = binance_bid
+	killme();
 });
 
 // ============== OKX ====================
@@ -83,6 +84,7 @@ okx_sock.on('message', (msg) => {
 		};
 		dataf['okx']['ask'][Date.now()] = okx_ask
 		dataf['okx']['bid'][Date.now()] = okx_bid
+		killme();
 	} catch (e) {
 	}
 });
