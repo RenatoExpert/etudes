@@ -16,7 +16,7 @@ def get_average (list):
 	return total/count
 
 # ======= Binance =======
-b_dict = dataframe['binance']
+b_dict = {int(k):v for k,v in dataframe['binance'].items()}
 b_keys = list(b_dict.keys())
 b_x = [int(x) for x in b_keys]
 b_ya = [float(b_dict[time]['ask']) for time in b_keys]
@@ -29,8 +29,7 @@ b_spreads =  [
 b_as = get_average(b_spreads)
 
 # ======= Okx ===========
-o_dict = dataframe['okx']
-o_dict = {int(k):v for k,v in o_dict.items()}
+o_dict = {int(k):v for k,v in dataframe['okx'].items()}
 o_keys = list(o_dict.keys())
 o_x = [int(x) for x in o_keys]
 o_ya = [float(o_dict[time]['ask']) for time in o_keys]
@@ -58,14 +57,17 @@ def delta_range (a, b):
 def per_diff (a, b):
 	return 5
 
-master_x = list(set(o_x)-set(b_x))
+#master_x = list(set(o_x)-set(b_x))
+master_x = o_x
+print('calculating y...')
 master_y = [
 	delta_range(
-		per_diff(force_y(o_dict, x), force_y(b_dict, x)),
-		per_diff(force_y(b_dict, x),force_y(o_dict, x))
+		per_diff(o_dict[x], force_y(b_dict, x)),
+		per_diff(force_y(b_dict, x), o_dict[x])
 	)
 	for x in master_x
 ]
+print(master_y)
 
 # ===== Relatory ========
 print('Frames')
