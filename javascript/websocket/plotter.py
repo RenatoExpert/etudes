@@ -55,10 +55,11 @@ o_as = get_average(o_spreads)
 def force_y (dic, x, side):
 	counter = 0
 	while(counter<100):
-		print(counter)
 		i = x - counter
-		if i in dic: return dic[i][side]
-		else: counter+=1
+		if i in dic:
+			return dic[i][side]
+		else:
+			counter+=1
 	return 0
 	
 def delta_range (a, b):
@@ -70,8 +71,9 @@ def delta_range (a, b):
 '''
 
 def per_diff (a, b):
-	if a > b: return a-b
-	else: return 0
+	diff = a-b
+	if diff>0: return diff
+
 
 #master_x = list(set(o_x)-set(b_x))
 master_x = o_x
@@ -92,14 +94,14 @@ print('Okx:' , o_as)
 print('Binance:' , b_as)
 
 # === Ploting ======
-fig, axs = plt.subplots(2, 1, sharex=True, sharey=True)
+fig, axs = plt.subplots(2, 1, sharex=True, sharey=False)
 axs[0].set_title('Spreads')
 axs[0].grid(True)
 axs[0].set_xlabel('Time')
 axs[0].set_ylabel('Price')
 
 # === Okx spread ===
-axs[0].fill_between(o_x, o_ya, o_yb, color='gray')
+axs[0].fill_between(b_x, b_ya, b_yb, color='gray')
 # === Binance spread ===
 axs1 = axs[0].twinx()
 axs1.fill_between(b_x, b_ya, b_yb, color='yellow')
