@@ -25,7 +25,7 @@ print('Okx frames:' , len(o_x))
 print('Binance frames:' , len(b_x))
 
 
-fig, axs = plt.subplots(4, 1, sharex=True, sharey=True)
+fig, axs = plt.subplots(2, 1, sharex=True, sharey=True)
 
 # === Okx spread ===
 axs[0].set_title('Okx Spread')
