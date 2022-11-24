@@ -52,11 +52,11 @@ o_spreads =  [
 o_as = get_average(o_spreads)
 
 # ======== Delta range ==
-def force_y (dic, x):
+def force_y (dic, x, side):
 	counter = 0
 	while(counter<=x):
 		i = x - counter
-		if i in dic: return dic[i]
+		if i in dic: return dic[i][side]
 		else: counter+=1
 	
 def delta_range (a, b):
@@ -65,15 +65,16 @@ def delta_range (a, b):
 	else: return 0
 
 def per_diff (a, b):
-	return 5
+	if(a==b): return 0
+	else: return b/(a-b)
 
 #master_x = list(set(o_x)-set(b_x))
 master_x = o_x
 print('calculating y...')
 master_y = [
 	delta_range(
-		per_diff(o_dict[x], force_y(b_dict, x)),
-		per_diff(force_y(b_dict, x), o_dict[x])
+		per_diff(o_dict[x]['bid'], force_y(b_dict, x, 'ask')),
+		per_diff(force_y(b_dict, x, 'bid'), o_dict[x]['ask'])
 	)
 	for x in master_x
 ]
