@@ -1,4 +1,23 @@
 const WebSocket = require('ws');
+const fs = require('fs');
+
+startTime = Date.now();
+
+function killme () {
+	if (Date.now() - startTime > 30000) {
+		exportable = JSON.stringify(dataf);
+		fs.writeFile('./dataframe.json',
+			exportable,
+			err => {
+				if(err) {
+					console.err(err);
+				}
+			}
+		);
+		console.log('Done!');
+		process.exit(0);
+	}
+}
 
 var table = {};
 var dataf = {
