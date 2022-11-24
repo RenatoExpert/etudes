@@ -27,15 +27,9 @@ function killme () {
 
 var table = {};
 
-var binancef= {
-	'ask': {},
-	'bid': {}
-};
+var binancef= {};
 
-var okxf= {
-	'ask': {},
-	'bid': {}
-};
+var okxf= {};
 
 // =============== BINANCE ===============
 const binance_sock = new WebSocket(
@@ -48,8 +42,8 @@ binance_sock.on('message', msg => {
 	binance_bid = json['bids'][0][0]
 	binance_ask = json['asks'][0][0]
 	dtime = new Date().getTime() - startTime;
-	binancef['ask'][dtime] = binance_ask
-	binancef['bid'][dtime] = binance_bid
+	binancef[dtime]['ask'] = binance_ask
+	binancef[dtime]['bid'] = binance_bid
 	killme();
 });
 
@@ -77,8 +71,8 @@ okx_sock.on('message', (msg) => {
 		okx_ask = json['asks'][0][0];
 		okx_bid = json['bids'][0][0];
 		dtime = new Date().getTime() - startTime;
-		okxf['ask'][dtime] = okx_ask
-		okxf['bid'][dtime] = okx_bid
+		okxf[dtime]['ask'] = okx_ask
+		okxf[dtime]['bid'] = okx_bid
 		killme();
 	} catch (e) {
 	}
