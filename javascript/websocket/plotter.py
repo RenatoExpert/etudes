@@ -54,31 +54,34 @@ o_as = get_average(o_spreads)
 # ======== Delta range ==
 def force_y (dic, x, side):
 	counter = 0
-	while(counter<=x):
+	while(counter<100):
+		print(counter)
 		i = x - counter
 		if i in dic: return dic[i][side]
 		else: counter+=1
+	return 0
 	
 def delta_range (a, b):
-	if a > 0 : return a
-	elif b > 0 : return b
+	return a
+'''
+	if a > 0 : return 2
+	elif b > 0 : return -1
 	else: return 0
+'''
 
 def per_diff (a, b):
-	if(a==b): return 0
-	else: return b/(a-b)
+	if a > b: return a-b
+	else: return 0
 
 #master_x = list(set(o_x)-set(b_x))
 master_x = o_x
-print('calculating y...')
 master_y = [
 	delta_range(
-		per_diff(o_dict[x]['bid'], force_y(b_dict, x, 'ask')),
+		per_diff(force_y(o_dict, x, 'bid'), force_y(b_dict, x, 'ask')),
 		per_diff(force_y(b_dict, x, 'bid'), o_dict[x]['ask'])
 	)
 	for x in master_x
 ]
-print(master_y)
 
 # ===== Relatory ========
 print('Frames')
@@ -89,20 +92,19 @@ print('Okx:' , o_as)
 print('Binance:' , b_as)
 
 # === Ploting ======
-fig, axs = plt.subplots(1, 1, sharex=True, sharey=False)
-axs.set_title('Spreads')
-axs.grid(True)
-axs.set_xlabel('Time')
-axs.set_ylabel('Price')
+fig, axs = plt.subplots(2, 1, sharex=True, sharey=True)
+axs[0].set_title('Spreads')
+axs[0].grid(True)
+axs[0].set_xlabel('Time')
+axs[0].set_ylabel('Price')
 
 # === Okx spread ===
-axs.fill_between(o_x, o_ya, o_yb, color='gray')
+axs[0].fill_between(o_x, o_ya, o_yb, color='gray')
 # === Binance spread ===
-axs1 = axs.twinx()
+axs1 = axs[0].twinx()
 axs1.fill_between(b_x, b_ya, b_yb, color='yellow')
 # === Delta range
-axs2 = axs.twinx()
-axs2.plot(master_x, master_y, color='green')
+axs[1].plot(master_x, master_y, color='green')
 
 fig.tight_layout()
 plt.show()
