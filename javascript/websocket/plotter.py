@@ -16,11 +16,16 @@ def get_average (list):
 	return total/count
 
 # ======= Binance =======
-b_dict = {int(k):v for k,v in dataframe['binance'].items()}
+b_dict = {
+	int(k):{
+		side: float(v[side])
+		for side in v
+	} for k,v in dataframe['binance'].items()
+}
 b_keys = list(b_dict.keys())
 b_x = [int(x) for x in b_keys]
-b_ya = [float(b_dict[time]['ask']) for time in b_keys]
-b_yb = [float(b_dict[time]['bid']) for time in b_keys]
+b_ya = [b_dict[time]['ask'] for time in b_keys]
+b_yb = [b_dict[time]['bid'] for time in b_keys]
 b_spreads =  [
 	float(b_dict[time]['ask']) -
 	float(b_dict[time]['bid'])
@@ -29,11 +34,16 @@ b_spreads =  [
 b_as = get_average(b_spreads)
 
 # ======= Okx ===========
-o_dict = {int(k):v for k,v in dataframe['okx'].items()}
+o_dict = {
+	int(k):{
+		side: float(v[side])
+		for side in v
+	} for k,v in dataframe['okx'].items()
+}
 o_keys = list(o_dict.keys())
 o_x = [int(x) for x in o_keys]
-o_ya = [float(o_dict[time]['ask']) for time in o_keys]
-o_yb = [float(o_dict[time]['bid']) for time in o_keys]
+o_ya = [o_dict[time]['ask'] for time in o_keys]
+o_yb = [o_dict[time]['bid'] for time in o_keys]
 o_spreads =  [
 	float(o_dict[time]['ask']) -
 	float(o_dict[time]['bid'])
