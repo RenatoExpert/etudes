@@ -40,7 +40,7 @@ o_spreads =  [
 o_as = get_average(o_spreads)
 
 # ======== Delta range ==
-
+master_x = list(set(o_x)-set(b_x))
 
 # ===== Relatory ========
 print('Frames')
