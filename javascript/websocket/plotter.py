@@ -94,20 +94,25 @@ print('Okx:' , o_as)
 print('Binance:' , b_as)
 
 # === Ploting ======
-fig, axs = plt.subplots(2, 1, sharex=True, sharey=False)
-axs[0].set_title('Spreads')
-axs[0].grid(True)
-axs[0].set_xlabel('Time')
-axs[0].set_ylabel('Price')
+#fig, axs = plt.subplots(2, 1, sharex=True, sharey=False)
+ax1 = plt.subplot(311)
+'''
+plt.set_title('Spreads')
+plt.grid(True)
+plt.set_xlabel('Time')
+plt.set_ylabel('Price')
+'''
 
 # === Okx spread ===
-axs[0].fill_between(b_x, b_ya, b_yb, color='gray')
+plt.fill_between(o_x, o_ya, o_yb, color='gray')
 # === Binance spread ===
-axs1 = axs[0].twinx()
-axs1.fill_between(b_x, b_ya, b_yb, color='yellow')
+#axs1 = axs[0].twinx().twiny()
+#axs2 = plt.subplot(311, sharex=ax1, sharey=ax1)
+plt.fill_between(b_x, b_ya, b_yb, color='yellow')
 # === Delta range
-axs[1].plot(master_x, master_y, color='green')
+axs3 = plt.subplot(312, sharex=ax1)
+plt.plot(master_x, master_y, color='green')
 
-fig.tight_layout()
+#fig.tight_layout()
 plt.show()
 
