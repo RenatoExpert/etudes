@@ -80,7 +80,7 @@ master_x = o_x
 master_y = [
 	delta_range(
 		per_diff(force_y(o_dict, x, 'bid'), force_y(b_dict, x, 'ask')),
-		per_diff(force_y(b_dict, x, 'bid'), o_dict[x]['ask'])
+		per_diff(force_y(b_dict, x, 'bid'), force_y(o_dict, x, 'ask')
 	)
 	for x in master_x
 ]
@@ -94,7 +94,6 @@ print('Okx:' , o_as)
 print('Binance:' , b_as)
 
 # === Ploting ======
-#fig, axs = plt.subplots(2, 1, sharex=True, sharey=False)
 ax1 = plt.subplot(311)
 '''
 plt.set_title('Spreads')
@@ -106,13 +105,11 @@ plt.set_ylabel('Price')
 # === Okx spread ===
 plt.fill_between(o_x, o_ya, o_yb, color='gray')
 # === Binance spread ===
-#axs1 = axs[0].twinx().twiny()
-#axs2 = plt.subplot(311, sharex=ax1, sharey=ax1)
 plt.fill_between(b_x, b_ya, b_yb, color='yellow')
 # === Delta range
 axs3 = plt.subplot(312, sharex=ax1)
 plt.plot(master_x, master_y, color='green')
 
-#fig.tight_layout()
+fig.tight_layout()
 plt.show()
 
