@@ -8,6 +8,10 @@ function killme () {
 	past = new Date().getTime() - startTime.getTime();
 	ready = past >= limit;
 	if (ready) {
+		var dataf = {
+			'binance': binancef,
+			'okx': okxf
+		};
 		console.log('Time to export');
 		exportable = JSON.stringify(dataf);
 		fs.writeFileSync('./dataframe.json', exportable);
@@ -21,15 +25,15 @@ function killme () {
 }
 
 var table = {};
-var dataf = {
-	'binance': {
-		'ask': {},
-		'bid': {}
-	},
-	'okx': {
-		'ask': {},
-		'bid': {}
-	}
+
+var binancef= {
+	'ask': {},
+	'bid': {}
+};
+
+var okxf= {
+	'ask': {},
+	'bid': {}
 };
 
 // =============== BINANCE ===============
@@ -42,8 +46,8 @@ binance_sock.on('message', msg => {
 	json = JSON.parse(str);
 	binance_bid = json['bids'][0][0]
 	binance_ask = json['asks'][0][0]
-	dataf['binance']['ask'][Date.now()] = binance_ask
-	dataf['binance']['bid'][Date.now()] = binance_bid
+	binancef['ask'][Date.now()] = binance_ask
+	binancef['bid'][Date.now()] = binance_bid
 	killme();
 });
 
@@ -75,8 +79,8 @@ okx_sock.on('message', (msg) => {
 			'ask': okx_ask,
 			'time': Date.now()
 		};
-		dataf['okx']['ask'][Date.now()] = okx_ask
-		dataf['okx']['bid'][Date.now()] = okx_bid
+		okxf['ask'][Date.now()] = okx_ask
+		okxf['bid'][Date.now()] = okx_bid
 		killme();
 	} catch (e) {
 	}
