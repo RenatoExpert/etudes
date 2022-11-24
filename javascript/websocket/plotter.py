@@ -15,6 +15,9 @@ o_bid_keys = list(dataframe['okx']['bid'].keys())
 o_bid_x = np.array([int(x) for x in o_bid_keys])
 o_bid_y = [float(dataframe['okx']['bid'][time]) for time in o_bid_keys]
 
+print('Okx frames:' , len(o_bid_x))
+print('Binance frames:' , len(b_ask_x))
+
 fig, ax = plt.subplots(sharex=True, sharey=True)
 ax.grid(True)
 
