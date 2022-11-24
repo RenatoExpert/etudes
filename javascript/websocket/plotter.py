@@ -29,6 +29,7 @@ b_as = get_average(b_spreads)
 
 # ======= Okx ===========
 o_keys = list(dataframe['okx'].keys())
+o_dict = dataframe['okx']
 o_x = [int(x) for x in o_keys]
 o_ya = [float(dataframe['okx'][time]['ask']) for time in o_keys]
 o_yb = [float(dataframe['okx'][time]['bid']) for time in o_keys]
@@ -40,7 +41,16 @@ o_spreads =  [
 o_as = get_average(o_spreads)
 
 # ======== Delta range ==
+'''
 master_x = list(set(o_x)-set(b_x))
+master_y = [
+	choose(
+		per_diff(force_y(),force_y()),
+		per_diff(force_y(),force_y())
+	)
+	for x in master_x
+]
+'''
 
 # ===== Relatory ========
 print('Frames')
