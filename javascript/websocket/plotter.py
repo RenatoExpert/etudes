@@ -42,16 +42,14 @@ o_spreads =  [
 o_as = get_average(o_spreads)
 
 # ======== Delta range ==
-'''
 master_x = list(set(o_x)-set(b_x))
 master_y = [
 	choose(
-		per_diff(force_y(),force_y()),
-		per_diff(force_y(),force_y())
+		per_diff(force_y(o_dict, x), force_y(b_dict, x)),
+		per_diff(force_y(b_dict, x),force_y(o_dict, x))
 	)
 	for x in master_x
 ]
-'''
 
 # ===== Relatory ========
 print('Frames')
