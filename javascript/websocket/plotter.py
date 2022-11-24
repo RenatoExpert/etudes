@@ -19,7 +19,10 @@ o_keys = list(dataframe['okx'].keys())
 o_x = np.array([int(x) for x in o_keys])
 o_ya = [float(dataframe['okx'][time]['ask']) for time in o_keys]
 o_yb = [float(dataframe['okx'][time]['bid']) for time in o_keys]
-o_spreads =  time['bid']-time['ask'] for time in dataframe['okx']
+o_spreads =  [
+	float(dataframe['okx'][time]['bid']) -
+	float(dataframe['okx'][time]['ask']) for time in o_keys
+]
 
 # ===== Relatory ========
 print('Frames')
