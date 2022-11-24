@@ -81,7 +81,6 @@ def per_diff (a, b):
 			return 0
 
 master_x = sorted(list(set(o_x)-set(b_x)))
-#master_x = o_x
 master_y = [
 	delta_range(
 		per_diff(force_y(o_dict, x, 'bid'), force_y(b_dict, x, 'ask')),
@@ -99,20 +98,26 @@ print('Okx:' , o_as)
 print('Binance:' , b_as)
 
 # === Ploting ======
-ax1 = plt.subplot(311)
-'''
-plt.set_title('Spreads')
+ax1 = plt.subplot(
+	311, 
+	xlabel='Time(ms)', 
+	ylabel='Price(USDT)', 
+	title='Spreads'
+)
 plt.grid(True)
-plt.set_xlabel('Time')
-plt.set_ylabel('Price')
-'''
 
 # === Okx spread ===
 plt.fill_between(o_x, o_ya, o_yb, color='gray')
 # === Binance spread ===
 plt.fill_between(b_x, b_ya, b_yb, color='yellow')
 # === Delta range
-axs3 = plt.subplot(312, sharex=ax1)
+axs3 = plt.subplot(
+	312,
+	sharex=ax1,
+	title='Arbitrage delta',
+	xlabel='Time(ms)',
+	ylabel='Delta(%)'
+)
 plt.plot(master_x, master_y, color='green')
 
 plt.tight_layout()
