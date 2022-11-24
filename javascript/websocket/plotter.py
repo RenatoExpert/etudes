@@ -11,7 +11,7 @@ import numpy as np
 def get_average (list): 
 	total = 0
 	count = len(list)
-	for (n in list):
+	for n in list:
 		total = total+n
 	return total/count
 
