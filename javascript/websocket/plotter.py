@@ -21,7 +21,8 @@ o_ya = [float(dataframe['okx'][time]['ask']) for time in o_keys]
 o_yb = [float(dataframe['okx'][time]['bid']) for time in o_keys]
 o_spreads =  [
 	float(dataframe['okx'][time]['bid']) -
-	float(dataframe['okx'][time]['ask']) for time in o_keys
+	float(dataframe['okx'][time]['ask']) 
+	for time in o_keys
 ]
 
 # ===== Relatory ========
