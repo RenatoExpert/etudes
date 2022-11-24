@@ -16,8 +16,8 @@ def get_average (list):
 	return total/count
 
 # ======= Binance =======
-b_keys = list(dataframe['binance'].keys())
 b_dict = dataframe['binance']
+b_keys = list(b_dict.keys())
 b_x = [int(x) for x in b_keys]
 b_ya = [float(b_dict[time]['ask']) for time in b_keys]
 b_yb = [float(b_dict[time]['bid']) for time in b_keys]
@@ -29,8 +29,9 @@ b_spreads =  [
 b_as = get_average(b_spreads)
 
 # ======= Okx ===========
-o_keys = list(dataframe['okx'].keys())
 o_dict = dataframe['okx']
+o_dict = {int(k):v for k,v in o_dict.items()}
+o_keys = list(o_dict.keys())
 o_x = [int(x) for x in o_keys]
 o_ya = [float(o_dict[time]['ask']) for time in o_keys]
 o_yb = [float(o_dict[time]['bid']) for time in o_keys]
@@ -41,10 +42,22 @@ o_spreads =  [
 ]
 o_as = get_average(o_spreads)
 
+def force_y (dic, x):
+	counter = 0
+	while(true):
+		i = x - counter
+		if dic.has_key(i): return dic[i]
+		else: counter+=1
+	
+def delta_range (a, b, 0):
+	if a > 0 : return a
+	elif b > 0 : return b
+	else: return 0
+
 # ======== Delta range ==
 master_x = list(set(o_x)-set(b_x))
 master_y = [
-	choose(
+	delta_range(
 		per_diff(force_y(o_dict, x), force_y(b_dict, x)),
 		per_diff(force_y(b_dict, x),force_y(o_dict, x))
 	)
