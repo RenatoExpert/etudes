@@ -80,8 +80,8 @@ def per_diff (a, b):
 		else:
 			return 0
 
-#master_x = list(set(o_x)-set(b_x))
-master_x = o_x
+master_x = sorted(list(set(o_x)-set(b_x)))
+#master_x = o_x
 master_y = [
 	delta_range(
 		per_diff(force_y(o_dict, x, 'bid'), force_y(b_dict, x, 'ask')),
