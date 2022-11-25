@@ -2,6 +2,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 
 startTime = new Date();
+pair = 'xmrusdt';
 
 function killme () {
 	secs = process.argv[2] || 30;
@@ -33,7 +34,7 @@ var okxf= {};
 
 // =============== BINANCE ===============
 const binance_sock = new WebSocket(
-	'wss://stream.binance.com:9443/ws/btcusdt@depth20@100ms'
+	'wss://stream.binance.com:9443/ws/${pair}@depth20@100ms'
 );
 
 binance_sock.on('message', msg => {
@@ -59,7 +60,7 @@ okx_sock.on('open', () => {
 		"args": [
 			{
 				"channel": "books",
-				"instId": "BTC-USDT"
+				"instId": "XMR-USDT"
 			}
 		]
 	};
