@@ -34,7 +34,7 @@ var okxf= {};
 
 // =============== BINANCE ===============
 const binance_sock = new WebSocket(
-	'wss://stream.binance.com:9443/ws/${pair}@depth20@100ms'
+	"wss://stream.binance.com:9443/ws/xmrusdt@depth20@100ms"
 );
 
 binance_sock.on('message', msg => {
