@@ -18,7 +18,7 @@
 get_ipython().run_line_magic('pip', 'install matplotlib numpy --quiet')
 
 
-# In[2]:
+# In[10]:
 
 
 # 1. Define Generic Formulas
@@ -27,7 +27,7 @@ import numpy as np
 from math import pi, cos, sin
 
 integral_factor = 10000
-N_factor = 10000
+N_factor = 1000
 
 def integral (expression, xo, xf):
     delta = xf - xo
@@ -100,39 +100,38 @@ def convert_to_periodic (x, p1, p2):
     return x_periodic
 
 
-# In[ ]:
+# In[17]:
 
 
 p1 = 0
-p2 = 3
+#p2 = 3
+p2 = 7
 P = p2 - p1
 
 def myfunction (x):
     px = convert_to_periodic(x, p1, p2)
-    #return (3 * (px ** 3)) - (px ** 2 * 3) + 7 + sin(px)
-    #return 5 if x > 2 else 10 * x ** 2
-    return x**2
+    return (3 * (px ** 3)) - (px ** 2 * 3) + 7 + sin(px)
+    #return 5 if px > 2 else 10 * px ** 2
+    #return px**2
 
 ( a0, an, bn ) = get_coeficients(myfunction, p1, p2)
 
 
-# In[ ]:
+# In[22]:
 
 
-x_range = [ x / 10 for x in range(0, 1000) ]
+x_range = [ x / 10 for x in range(0, 600) ]
 y_range = [ myfunction(x) for x in x_range ]
 f_range = [ fourier_series (x, a0, an, bn, P) for x in x_range ]
 
 
-# In[ ]:
+# In[23]:
 
 
 plt.plot(x_range, y_range, label="f(x)")
 plt.plot(x_range, f_range, label="fourier")
 plt.show()
 
-
-# In[ ]:
 
 
 
